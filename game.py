@@ -113,18 +113,27 @@ def startAnimation(board):
     board1 = reveal_board(False)
     draw_board(board,board1)
     for i in range(0,len(boxes),8):
+        font = pygame.font.Font('freesansbold.ttf', 24)
+        text = font.render('Game Start', True, GREEN, BLUE)
+        textRect = text.get_rect()
+        DISPLAYSURF.blit(text, textRect)
         reveal_Cover_Animation(board,boxes[i:i+8])
         close_Cover_Animation(board,boxes[i:i+8])
 
 def win_animation(board):
     rev_board = reveal_board(True)
     col1, col2 = LIGHTBGCOLOR, BGCOLOR
+    font = pygame.font.Font('freesansbold.ttf', 24)
+    text = font.render('Congrats! You won', True, GREEN, BLUE)
+    textRect = text.get_rect()
     for i in range(11):
         col1, col2 = col2, col1
         DISPLAYSURF.fill(col1)
         draw_board(board,rev_board)
+        DISPLAYSURF.blit(text, textRect)
         pygame.display.update()
         pygame.time.wait(500)
+    DISPLAYSURF.fill(BGCOLOR)
 
 def has_won(board):
     for i in board:
