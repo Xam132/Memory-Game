@@ -124,7 +124,7 @@ def win_animation(board):
     col1, col2 = LIGHTBGCOLOR, BGCOLOR
     text = font.render('Congrats! You won', True, GREEN, BLUE)
     textRect = text.get_rect()
-    for i in range(11):
+    for i in range(7):
         col1, col2 = col2, col1
         DISPLAYSURF.fill(col1)
         draw_board(board,rev_board)
@@ -202,6 +202,8 @@ def main():
                         pygame.time.wait(2000)
                         board = random_board()
                         rev_board = reveal_board(False)
+                        pygame.display.update()
+                        FPSCLOCK.tick(FPS)
                         draw_board(board, rev_board)
                         startAnimation(board)
                     first_sel = None
