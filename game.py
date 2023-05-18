@@ -4,8 +4,8 @@ from pygame.locals import *
 FPS = 30
 WINDOW_WIDTH = 640
 WINDOW_HEIGHT = 480
-BOARD_WIDTH = 2     # in terms of num of icons
-BOARD_HEIGHT = 2     # in terms of num of icons
+BOARD_WIDTH = 6     # in terms of num of icons
+BOARD_HEIGHT = 6     # in terms of num of icons
 REVEALSPEED = 8
 BOXSIZE = 40
 GAPSIZE = 10
@@ -112,13 +112,13 @@ def startAnimation(board):
     random.shuffle(boxes)
     board1 = reveal_board(False)
     draw_board(board,board1)
-    for i in range(0,len(boxes),8):
+    for i in range(0,len(boxes),6):
         font = pygame.font.Font('freesansbold.ttf', 24)
         text = font.render('Game Start', True, GREEN, BLUE)
         textRect = text.get_rect()
         DISPLAYSURF.blit(text, textRect)
-        reveal_Cover_Animation(board,boxes[i:i+8])
-        close_Cover_Animation(board,boxes[i:i+8])
+        reveal_Cover_Animation(board,boxes[i:i+6])
+        close_Cover_Animation(board,boxes[i:i+6])
 
 def win_animation(board):
     rev_board = reveal_board(True)
