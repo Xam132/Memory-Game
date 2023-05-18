@@ -157,7 +157,7 @@ def highlight_box(boxx,boxy):
 def main():
     global FPSCLOCK, DISPLAYSURF, font
     pygame.init()
-    font = pygame.font.Font('./font/arial.ttf', 24)
+    font = pygame.font.SysFont('arial', 24)
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     pygame.display.set_caption("Memory Game / Concentration")
