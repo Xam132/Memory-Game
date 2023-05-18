@@ -113,7 +113,6 @@ def startAnimation(board):
     board1 = reveal_board(False)
     draw_board(board,board1)
     for i in range(0,len(boxes),6):
-        font = pygame.font.Font('freesansbold.ttf', 24)
         text = font.render('Game Start', True, GREEN, BLUE)
         textRect = text.get_rect()
         DISPLAYSURF.blit(text, textRect)
@@ -123,7 +122,6 @@ def startAnimation(board):
 def win_animation(board):
     rev_board = reveal_board(True)
     col1, col2 = LIGHTBGCOLOR, BGCOLOR
-    font = pygame.font.Font('freesansbold.ttf', 24)
     text = font.render('Congrats! You won', True, GREEN, BLUE)
     textRect = text.get_rect()
     for i in range(11):
@@ -157,8 +155,9 @@ def highlight_box(boxx,boxy):
     pygame.draw.rect(DISPLAYSURF,HIGHLIGHTCOLOR,(left-4,top-4,BOXSIZE+8,BOXSIZE+8),4)
 
 def main():
-    global FPSCLOCK, DISPLAYSURF
+    global FPSCLOCK, DISPLAYSURF, font
     pygame.init()
+    font = pygame.font.Font('./font/arial.ttf', 24)
     FPSCLOCK = pygame.time.Clock()
     DISPLAYSURF = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
     pygame.display.set_caption("Memory Game / Concentration")
